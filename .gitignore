@@ -1,0 +1,17 @@
+# Virtual environment
+.venv1/
+venv/
+env/
+
+# SLURM output files
+*.out
+*.err
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Compiled binaries
+*.exe
+*.o
