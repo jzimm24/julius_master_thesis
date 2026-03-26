@@ -14,4 +14,4 @@ __pycache__/
 
 # Compiled binaries
 *.exe
-*.o
+*.odata_CIFAR10/cifar-10-python.tar.gz
