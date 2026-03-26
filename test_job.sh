@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -N 1 -p intelsr_devel --exclusive --time=00:05:00
+#SBATCH -N 1 -p mlgpu_devel --exclusive --time=00:20:00
 #SBATCH --mail-type=ALL   # notifications for job done & fail
 #SBATCH --mail-user=s64jzimm@uni-bonn.de #user email for updates
 
@@ -20,7 +20,7 @@ echo "***** LAUNCHING *****"
 echo `date '+%F %H:%M:%S'`
 echo ""
 
-srun python src/CNN_test.py
+srun python src/ResNet_test.py
 
 echo ""
 echo "***** DONE *****"
