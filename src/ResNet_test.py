@@ -119,13 +119,13 @@ def main():
 
     num_classes = 10
     num_epochs = 20
-    batch_size = 16
+    batch_size = 64
     learning_rate = 0.01
 
     model = ResNet(ResidualBlock, [3, 4, 6, 3]).to(device)
 
-    max_batches = 40
-    max_val_batches = 40
+    #max_batches = 40
+    #max_val_batches = 40
 
     ## Loss and Optimizer
     criterion = nn.CrossEntropyLoss()
@@ -140,9 +140,9 @@ def main():
         print('###################################')
         for i, (images, labels) in enumerate(train_loader):
             print(i)
-            if i >= max_batches:
-                print('!!!!!!!!!!!!!!! max set batches reached')
-                break  
+            #if i >= max_batches:
+            #    print('!!!!!!!!!!!!!!! max set batches reached')
+            #    break  
             #Move tensors to the configured device
             images = images.to(device)
             labels = labels.to(device)
@@ -159,7 +159,7 @@ def main():
             torch.cuda.empty_cache()
             gc.collect()
 
-    print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
+        print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
 
     #Validation
     with torch.no_grad():
@@ -167,10 +167,10 @@ def main():
         correct = 0
         total = 0
         for i, (images, labels) in enumerate(valid_loader):
-            print(i)
-            if i >= max_val_batches:
-                print('!!!!!!!1 max set val batches reached!!!!!!!')
-                break
+            #print(i)
+            #if i >= max_val_batches:
+            #    print('!!!!!!!1 max set val batches reached!!!!!!!')
+            #    break
             images = images.to(device)
             labels = labels.to(device)
             outputs = model(images)
