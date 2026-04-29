@@ -204,22 +204,17 @@ def training_and_validation(model, train_loader, valid_loader, train_on_gpu, opt
 
 def main():
     train_on_gpu = device_check()
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     
     model = ResNet(ResidualBlock, [3, 4, 6, 3])
-    print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
     
     if train_on_gpu:
         model = model.cuda()
-    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
 
     criterion = nn.CrossEntropyLoss() #define categorical cross-entropy loss function
     learning_rate = 0.05
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=0.001, momentum=0.9) #define the optimizer with learning rate
-    print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
 
     train_data, test_data = data_loading()
-    print("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
     train_idx, valid_idx = training_indices(num_train = len(train_data))
 
