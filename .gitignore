@@ -16,5 +16,6 @@ __pycache__/
 *.exe
 *.o
 data_CIFAR10/
+outputs/
 *.pt
 data/*.tar.gz
